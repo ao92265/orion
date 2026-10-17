@@ -2,6 +2,7 @@
 
 Newest first. One line per pull request: what changed and why it matters to someone using orion.
 
+- New `docs/PRDs/PRD.md` describes orion as it is today (users, vocabulary, scope, do-not-build list, acceptance bar, build decisions), so the rule that the PRD is the north star holds for orion itself; a draft until the owner approves it.
 - Utility skills: one BOM-free write method, no pointers into the orion repo, a `VERIFY.md` for `generate-project-writeup`, and the sweep never treats a QA worktree as safe
 - An auto-update at session start now time-limits only the download, never the copy, so a slow Windows machine can no longer be left with a half-updated orion; the hook's time limit goes from 20 s to 60 s, and existing installs are raised by their next `update` or session-start check (until then the old 10 s cap stays).
 - `wayfinder` is rewritten in orion's own words and loses its third-party licence credit, so the skill names no outside person or repository; it works as before, with the map's sections now called Settled and Fog (older maps are still read).
