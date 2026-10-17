@@ -9,8 +9,10 @@
 > `CLAUDE.md` for new conflicts and fix them in the same commit. If a contradiction slips through anyway, this file wins.
 >
 > **A person's own rules file (their user-level `CLAUDE.md`) is different: when it contradicts this file, neither wins
-> silently.** Stop, tell the person about the contradiction (quote both rules and say where each lives), and ask
-> which one to use.
+> silently.** With the person present, name the clash (quote both rules and say where each lives) and offer to fix
+> it for good: edit their own file, or open a pull request to orion for this one (never the copy); follow their
+> choice. In a run nobody is watching (`/dev-next`), never stop to ask: follow this file and add the clash to the
+> `friction` list of the run's report.
 
 ## Communication
 
