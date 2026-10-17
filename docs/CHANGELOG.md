@@ -2,6 +2,7 @@
 
 Newest first. One line per pull request: what changed and why it matters to someone using orion.
 
+- BASE_CLAUDE.md gains the reply rules that help every project: accuracy beats brevity beats shape, a reply shaped to its job (report, decision, answer), full plain sentences, a status line while work runs, and pull requests named by their issue.
 - New `docs/PRDs/PRD.md` describes orion as it is today (users, vocabulary, scope, do-not-build list, acceptance bar, build decisions), so the rule that the PRD is the north star holds for orion itself; a draft until the owner approves it.
 - Utility skills: one BOM-free write method, no pointers into the orion repo, a `VERIFY.md` for `generate-project-writeup`, and the sweep never treats a QA worktree as safe
 - An auto-update at session start now time-limits only the download, never the copy, so a slow Windows machine can no longer be left with a half-updated orion; the hook's time limit goes from 20 s to 60 s, and existing installs are raised by their next `update` or session-start check (until then the old 10 s cap stays).
