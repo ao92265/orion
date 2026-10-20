@@ -1,0 +1,40 @@
+{
+  "run_id": "orion-20261020-124452-d3d3",
+  "issue": 120,
+  "title": "Status line updates never reach a computer installed before version numbers",
+  "login": "nachogl1",
+  "started_at": "2026-10-20T12:44:52Z",
+  "finished_at": "2026-10-20T13:11:00Z",
+  "outcome": "merged",
+  "pr": 121,
+  "summary": "A status line copy whose stamp still held a pre-version commit time was never offered or merged again; a stamp of 1000000000 or more now counts as version 0, so the normal offer and merge run. One new suite check, version 3 to 4.",
+  "agents": [
+    {
+      "name": "dev-120",
+      "model": "opus",
+      "tokens_total": 126006
+    },
+    {
+      "name": "review-120",
+      "model": "opus",
+      "tokens_total": 89033
+    }
+  ],
+  "phases": {
+    "qa_seconds": 0,
+    "dev_seconds": 1164,
+    "review_seconds": 247,
+    "ci_seconds": null
+  },
+  "rounds": {
+    "review": 1,
+    "ci": 1
+  },
+  "friction": [
+    "The decision recorded on the issue ('larger than ORION_VERSION') would have broken 'never step back', because an installed copy only knows its own project's number; the dev agent caught it and the orchestrator amended the decision mid-run. A stamp rule should be checked against the multi-project case before it is written as a decision."
+  ],
+  "lessons_learned": [
+    "The pull request that moved the status line stamp to version numbers shipped no handling for stamps already on disk; a change to a stored format needs a check for what existing installs hold."
+  ],
+  "deferred": []
+}

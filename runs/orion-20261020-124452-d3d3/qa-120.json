@@ -1,0 +1,20 @@
+{
+  "run_id": "orion-20261020-124452-d3d3",
+  "issue": 120,
+  "title": "Status line updates never reach a computer installed before version numbers",
+  "login": "nachogl1",
+  "pr": 121,
+  "merged_at": "2026-10-20T13:09:41Z",
+  "merge_commit": "f077e3fd5111f3e6f0d53848a1687971af907988",
+  "seam": "orion.sh",
+  "story": "I installed orion's status line before orion had version numbers. After later updates my status line never got the new features, and asking for a merge said there was nothing to merge. Now the next session offers me the new status line, and taking it keeps any edits I made.",
+  "checks": [
+    {
+      "key": "orion.sh/statusline-old-stamp",
+      "criterion": "A computer whose status line stamp holds an old commit time is offered the newer status line and can merge it.",
+      "steps": "Set HOME to a sandbox folder. Run 'orion.sh init --project <tmp> --statusline --update-mode off'. Set line 5 of <tmp>/.claude/orion/VERSION one higher. Append '# newer line' to <tmp>/.claude/orion/statusline/statusline.sh. Set line 1 of $HOME/.claude/statusline/.orion-baseline to 1792417094. Run 'bash <tmp>/.claude/orion/orion.sh check --project <tmp> --force', then 'bash <tmp>/.claude/orion/orion.sh statusline merge --project <tmp>'.",
+      "expected": "check prints one JSON line offering the status line; merge says \"orion's newest taken\"; $HOME/.claude/statusline/statusline.sh ends with '# newer line' and line 1 of the stamp is the new version number."
+    }
+  ],
+  "no_qa_reason": null
+}
