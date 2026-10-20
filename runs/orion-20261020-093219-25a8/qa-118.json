@@ -1,0 +1,38 @@
+{
+  "run_id": "orion-20261020-093219-25a8",
+  "issue": 118,
+  "title": "Status line: show the worktree name when the session is in a git worktree",
+  "login": "nachogl1",
+  "pr": 119,
+  "merged_at": "2026-10-20T09:52:32Z",
+  "merge_commit": "1ebc56f133f4c3245c22dbf36a1547c247cd1718",
+  "seam": "baselines/statusline/",
+  "story": "I often have several sessions open and could not tell which ones were working in a worktree. Now the line under the status bar shows the folder and then 'wkt:' with the worktree's name, so I can see it at a glance. In my main checkout the line looks exactly as before.",
+  "checks": [
+    {
+      "key": "baselines/statusline/worktree-tag-shown",
+      "criterion": "When Claude Code sends a worktree name, the second line reads '<cwd>  |  wkt:<name>'.",
+      "steps": "Install the status line with 'orion init --statusline'. In any repository run 'git worktree add ../demo-wt -b demo-branch'. Open a Claude Code session inside ../demo-wt.",
+      "expected": "The second line of the status line ends in '  |  wkt:demo-wt'."
+    },
+    {
+      "key": "baselines/statusline/worktree-tag-absent",
+      "criterion": "With no worktree field, the second line is the working directory alone, as before.",
+      "steps": "Open a Claude Code session in the main checkout of any repository.",
+      "expected": "The second line shows only the folder path, with no 'wkt:'."
+    },
+    {
+      "key": "baselines/statusline/worktree-tag-verbatim",
+      "criterion": "A name containing % or \\ prints exactly as written.",
+      "steps": "Run: printf '%s' '{\"cwd\":\"/tmp/x\",\"workspace\":{\"git_worktree\":\"50%_a\\b\"}}' | bash ~/.claude/statusline/statusline.sh",
+      "expected": "The last line reads '/tmp/x  |  wkt:50%_a\b'."
+    },
+    {
+      "key": "baselines/statusline/readme-worktree",
+      "criterion": "The README describes the tag and when it shows.",
+      "steps": "Open baselines/statusline/README.md.",
+      "expected": "A Worktree row in the segment table and a paragraph saying the tag shows only when the session itself is in a worktree."
+    }
+  ],
+  "no_qa_reason": null
+}

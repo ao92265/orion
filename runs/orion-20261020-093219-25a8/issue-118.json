@@ -1,0 +1,38 @@
+{
+  "run_id": "orion-20261020-093219-25a8",
+  "issue": 118,
+  "title": "Status line: show the worktree name when the session is in a git worktree",
+  "login": "nachogl1",
+  "started_at": "2026-10-20T09:32:25Z",
+  "finished_at": "2026-10-20T09:54:00Z",
+  "outcome": "merged",
+  "pr": 119,
+  "summary": "The status line's second line now ends in 'wkt:<name>' when the session is inside a linked git worktree, read from the fields Claude Code already sends; one new suite check over five inputs, README updated, version 2 to 3.",
+  "agents": [
+    {
+      "name": "dev-118",
+      "model": "opus",
+      "tokens_total": 102485
+    },
+    {
+      "name": "review-118",
+      "model": "opus",
+      "tokens_total": 84879
+    }
+  ],
+  "phases": {
+    "qa_seconds": 0,
+    "dev_seconds": 1033,
+    "review_seconds": 83,
+    "ci_seconds": null
+  },
+  "rounds": {
+    "review": 1,
+    "ci": 1
+  },
+  "friction": [
+    "dev-quick and dev-next are not installed under .claude/skills in the orion repository itself (it never runs orion init), and the repository had no epic and was missing five workflow labels, so the first run here had to create them and follow the skills from skills/ by hand"
+  ],
+  "lessons_learned": [],
+  "deferred": []
+}
