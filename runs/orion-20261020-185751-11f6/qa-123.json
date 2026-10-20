@@ -1,0 +1,26 @@
+{
+  "run_id": "orion-20261020-185751-11f6",
+  "issue": 123,
+  "title": "Status line hides the git segment on a detached HEAD",
+  "login": "nachogl1",
+  "pr": 125,
+  "merged_at": "2026-10-20T19:21:11Z",
+  "merge_commit": "1ede810f7b65564bc3a5fcfa484e6926c8c7dfc1",
+  "seam": "baselines/statusline/",
+  "story": "A session opened on a detached HEAD, such as a worktree made from a commit or a tag, used to lose its whole git segment, so the line looked as if the folder were outside git. Now the segment names the commit, for example [detached:27bbbf1], and still shows the stashed, untracked, modified and unpushed counts. Branches and folders outside git look exactly as before.",
+  "checks": [
+    {
+      "key": "baselines/statusline/detached-head-label",
+      "criterion": "On a detached HEAD, the first line shows [detached:<short commit id>] followed by the four state words.",
+      "steps": "mkdir -p /tmp/qa-sl/h && git -C /tmp/qa-sl init -q -b main repo && git -C /tmp/qa-sl/repo commit -q --allow-empty -m first; git -C /tmp/qa-sl/repo checkout -q --detach && touch /tmp/qa-sl/repo/new.txt; printf '{\"cwd\":\"/tmp/qa-sl/repo\"}' | HOME=/tmp/qa-sl/h bash baselines/statusline/statusline.sh | head -1",
+      "expected": "[detached:<id>]  | stashed:0 untracked:1 modified:0 unpushed:0, where <id> matches git -C /tmp/qa-sl/repo rev-parse --short HEAD."
+    },
+    {
+      "key": "baselines/statusline/branch-and-outside-git",
+      "criterion": "On a branch the segment is exactly as before, and outside a repository there is no git segment.",
+      "steps": "git -C /tmp/qa-sl init -q -b main repo2 && git -C /tmp/qa-sl/repo2 commit -q --allow-empty -m first && mkdir -p /tmp/qa-sl/plain; pipe {\"cwd\":\"/tmp/qa-sl/repo2\"} and then {\"cwd\":\"/tmp/qa-sl/plain\"} into the script with HOME=/tmp/qa-sl/h, keeping the first line.",
+      "expected": "repo2 shows [main]  | stashed:0 untracked:0 modified:0 unpushed:0; plain shows ctx: -- then only the cost, with no [...] and no stashed:."
+    }
+  ],
+  "no_qa_reason": null
+}

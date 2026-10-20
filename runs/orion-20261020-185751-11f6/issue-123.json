@@ -1,0 +1,36 @@
+{
+  "run_id": "orion-20261020-185751-11f6",
+  "issue": 123,
+  "title": "Status line hides the git segment on a detached HEAD",
+  "login": "nachogl1",
+  "started_at": "2026-10-20T18:57:51Z",
+  "finished_at": "2026-10-20T19:24:00Z",
+  "outcome": "merged",
+  "pr": 125,
+  "summary": "On a detached HEAD the status line now labels the git segment detached:<short commit id> and keeps the four state words, instead of dropping the segment. One new suite check, version 5 to 6.",
+  "agents": [
+    {
+      "name": "dev-123",
+      "model": "opus",
+      "tokens_total": 94211
+    },
+    {
+      "name": "review-123",
+      "model": "opus",
+      "tokens_total": 86531
+    }
+  ],
+  "phases": {
+    "qa_seconds": 0,
+    "dev_seconds": 1228,
+    "review_seconds": 104,
+    "ci_seconds": 79
+  },
+  "rounds": {
+    "review": 1,
+    "ci": 1
+  },
+  "friction": [],
+  "lessons_learned": [],
+  "deferred": []
+}
