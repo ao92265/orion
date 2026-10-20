@@ -2,6 +2,9 @@
 
 Newest first. One line per pull request: what changed and why it matters to someone using orion.
 
+**Closed for new entries.** Every pull request now adds its own file to `docs/changelog/` (see its `README.md`), so
+parallel pull requests never conflict; this file keeps the entries from before.
+
 - The status line keeps its git segment on a detached HEAD, naming the commit as `[detached:<short commit id>]` with the usual state words, where before the segment vanished and the line looked as if the folder were outside git.
 
 - The update check now runs at every session start instead of once a day, so a new release is offered in the next session, and "Not now" keeps it quiet until a newer one; the mandatory rules forbid changing another project without the person's yes and let the person's explicit word merge one pull request; `/orion-verify` creates `docs/CHANGELOG.md` when it is missing and offers to move one kept at the project's root.
