@@ -24,8 +24,8 @@
     {
       "key": "baselines/statusline/worktree-tag-verbatim",
       "criterion": "A name containing % or \\ prints exactly as written.",
-      "steps": "Run: printf '%s' '{\"cwd\":\"/tmp/x\",\"workspace\":{\"git_worktree\":\"50%_a\\b\"}}' | bash ~/.claude/statusline/statusline.sh",
-      "expected": "The last line reads '/tmp/x  |  wkt:50%_a\b'."
+      "steps": "Run: printf '%s' '{\"cwd\":\"/tmp/x\",\"workspace\":{\"git_worktree\":\"50%_a\\\\b\"}}' | bash ~/.claude/statusline/statusline.sh",
+      "expected": "The last line reads '/tmp/x  |  wkt:50%_a\\b'."
     },
     {
       "key": "baselines/statusline/readme-worktree",
