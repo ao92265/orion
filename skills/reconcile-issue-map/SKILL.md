@@ -169,9 +169,9 @@ same plain words ("Fix the story", "Update the PRD", "File a story", "It is fine
    - **Update the PRD** — the PRD is behind the issues or the code: a closed story's outcome, a decision made in an
      interview, a renamed thing. Goes in this run's `docs(prd)` pull request.
    - **File a story** — the PRD asks for something no story covers, written to `new-issue.md` (names the PRD section
-     under `### References`; `needs-human` unless nothing is left to ask), native sub-issue of the matching epic, both
-     blocker forms. Several uncovered items in one PRD area are **one** story when one developer would build them in
-     one session, else one each.
+     under `### References`; the tier the PRD gives that section; `needs-human` unless nothing is left to ask), native
+     sub-issue of the matching epic, both blocker forms. Several uncovered items in one PRD area are **one** story
+     when one developer would build them in one session, else one each.
    - **Close a story** — `main` already holds the work, or the PRD dropped the need: closed with a comment saying
      why, never deleted.
    - **It is fine as it is** — recorded in `accepted` with the person's reason, so it is not shown again until the
@@ -230,8 +230,9 @@ project's worktree root, opened by `reconcile-pr-<slug>`. A human merges it; thi
    - Removing a readiness label that should not be there (`agent-ready` beside `needs-human`) keeps `needs-human`.
 2. **Update the PRD** → the exact lines and sections the person agreed, applied by `reconcile-pr-<slug>` in the
    worktree, never by this session and never on `main`. One pull request for the whole run.
-3. **File a story** → exactly as `new-issue.md` says: every heading, `story` plus one readiness label, native
-   sub-issue of its epic (the person picks when none fits), both blocker forms read back, the PRD section under
+3. **File a story** → exactly as `new-issue.md` says: every heading, `story` plus one readiness label and the tier
+   the PRD gives that section (created first when missing, `new-issue.md` step 2), native sub-issue of its epic (the
+   person picks when none fits), both blocker forms read back, the PRD section under
    `### References` and `### Goal`, `### References` also naming this reconcile run (`reconcile of <date>`).
 4. **Close a story** → `gh issue close <N> --comment "<why, in plain words, and what covers it on main or which PRD
    change dropped it>"`. Never an assigned or in-flight issue.
